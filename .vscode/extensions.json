@@ -3,5 +3,6 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "gruntfuggly.triggertaskonsave",
+        "Prisma.prisma"
     ]
 }

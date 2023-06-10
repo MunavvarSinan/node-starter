@@ -1,9 +1,11 @@
 import express from 'express';
+import db from './modules/db';
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.json({ hi: 'hi' });
+app.get('/', async (req, res) => {
+    const posts = await db.post.findMany({ where: { publishedAt: { not: null } } });
+    res.json({ posts });
 })
 
 const port = Number(process.env.PORT || 8080);

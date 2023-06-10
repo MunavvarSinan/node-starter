@@ -1,4 +1,13 @@
 services:
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - 5432-5432
+    environment:
+      POSTGRES_DB: mad_mini_backend
+      POSTGRES_HOST_AUTH_METHOD: trust
+      
+
   backend:
     build: .
     ports:
@@ -9,5 +18,8 @@ services:
       - /usr/src/app/node_modules
       - /usr/src/app/.pnpm-store
     command: pnpm start:docker
+    depends_on:
+      - postgres # before starting the backend, start the postgres service
     environment:
+      DATABASE_URL: postgres://postgres@postgres/mad_mini_backend
       PORT: 5000
