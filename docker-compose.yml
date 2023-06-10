@@ -1,0 +1,13 @@
+services:
+  backend:
+    build: .
+    ports:
+      - 5000:5000
+      - 9229:9229 # for debugging
+    volumes:
+      - .:/usr/src/app # mount the current directory to the container ( which is a working directory mentioned in the Dockerfile)
+      - /usr/src/app/node_modules
+      - /usr/src/app/.pnpm-store
+    command: pnpm start:docker
+    environment:
+      PORT: 5000
