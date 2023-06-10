@@ -1,13 +1,13 @@
 {
-  "name": "nodjes-postgres-docker-starter",
+  "name": "mad-mini-new-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && swc ./src -d dist",
     "db:console": "docker compose run postgres psql -h postgres -U postgres -d mad_mini_backend",
-    "db:migrate": "prisma migrate dev",
-    "docker:db:migrate": "docker compose run backend pnpx prisma migrate dev",
+    "db:migrate": "prisma migrate dev --preview-feature",
+    "docker:db:migrate": "docker compose run backend pnpx db:migrate",
     "docker:db:migrate:undo": "docker compose run backend npx prisma migrate reset --preview-feature",
     "docker:seed:dev": "docker compose run backend pnpm ts-node scripts/seeds/dev.ts",
     "rebuild:be": "docker compose build backend && docker compose rm --force --stop backend && docker compose up -d backend",
