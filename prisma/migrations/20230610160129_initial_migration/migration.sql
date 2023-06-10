@@ -13,3 +13,6 @@ CREATE TABLE "posts" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "posts_slug_key" ON "posts"("slug");
+
+-- CreateIndex
+CREATE INDEX "posts_publishedAt_idx" ON "posts"("publishedAt");
