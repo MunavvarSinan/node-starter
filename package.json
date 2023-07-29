@@ -1,11 +1,11 @@
 {
   "name": "nodejs-docker-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A powerful backend starter file for Node.js, Express, Prisma, PostgreSQL, Docker, and TypeScript.",
+  "main": "./src/index.js",
   "scripts": {
     "build": "rimraf dist && swc ./src -d dist",
-    "db:console": "docker compose run postgres psql -h postgres -U postgres -d mad_mini_backend",
+    "db:console": "docker compose run postgres psql -h postgres -U postgres -d backend",
     "db:migrate": "prisma migrate dev --preview-feature",
     "docker:db:migrate": "docker compose run backend pnpx db:migrate",
     "docker:db:migrate:undo": "docker compose run backend npx prisma migrate reset --preview-feature",

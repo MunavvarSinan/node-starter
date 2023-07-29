@@ -4,9 +4,8 @@ services:
     ports:
       - 5432-5432
     environment:
-      POSTGRES_DB: mad_mini_backend
+      POSTGRES_DB: backend
       POSTGRES_HOST_AUTH_METHOD: trust
-      
 
   backend:
     build: .
@@ -21,5 +20,5 @@ services:
     depends_on:
       - postgres # before starting the backend, start the postgres service
     environment:
-      DATABASE_URL: postgres://postgres@postgres/mad_mini_backend
+      DATABASE_URL: postgres://postgres@postgres/backend
       PORT: 5000
