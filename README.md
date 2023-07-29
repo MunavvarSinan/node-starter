@@ -1,6 +1,6 @@
-# Nodejs-Docker-Postgres-starter
+# `npx nodejs-docker-starter my-app`
 
-## `npx nodejs-docker-starter my-app`
+# Nodejs-Docker-Postgres-starter
 
 A starter project for building Rest APIs with Node.js, Typescript, Postgres, and Prisma. It provides a basic folder structure and starter files to help you get started with your own Rest API quickly and easily.
 
