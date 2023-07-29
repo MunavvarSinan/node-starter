@@ -1,6 +1,6 @@
 {
   "name": "@nodejs-docker-starter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A powerful backend starter file for Node.js, Express, Prisma, PostgreSQL, Docker, and TypeScript.",
   "main": "./src/index.js",
   "bin": "./bin/cli.js",
