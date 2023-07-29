@@ -14,11 +14,13 @@ A starter project for building Rest APIs with Node.js, Typescript, Postgres, and
 
 - Node.js (v14 or later)
 - Postgres
+- Docker
 
 ### Installation
 
-1.  Initialize the project:` pmpm install typescript-graphql-mongodb-starter`
+1.  Initialize the project:` pmpm install nodejs-docker-starter`
 2.  Install dependencies: `pnpm install`
+3.  docker compose up
     `
 
 ### Running the Application
