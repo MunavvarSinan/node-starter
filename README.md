@@ -20,7 +20,7 @@ A starter project for building Rest APIs with Node.js, Typescript, Postgres, and
 
 1.  Initialize the project:` pmpm install nodejs-docker-starter`
 2.  Install dependencies: `pnpm install`
-3.  docker compose up
+3.  Start docker: `docker compose up`
     `
 
 ### Running the Application
