@@ -1,5 +1,7 @@
 # Nodejs-Docker-Postgres-starter
 
+## `npx nodejs-docker-starter my-app`
+
 A starter project for building Rest APIs with Node.js, Typescript, Postgres, and Prisma. It provides a basic folder structure and starter files to help you get started with your own Rest API quickly and easily.
 
 ## Features
@@ -18,10 +20,9 @@ A starter project for building Rest APIs with Node.js, Typescript, Postgres, and
 
 ### Installation
 
-1.  Initialize the project:` pmpm install nodejs-docker-starter`
-2.  Install dependencies: `pnpm install`
-3.  Start docker: `docker compose up`
-    `
+1. Installation command : `npx nodejs-docker-starter my-app`
+2. Install necessary dependencies : `cd my-app && pnpm install`
+   `
 
 ### Running the Application
 
