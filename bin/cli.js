@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-undef */
-import { execSync } from 'child_process';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 
+import { execSync } from 'child_process';
 const runCommand = command => {
     try {
         execSync(command, { stdio: 'inherit' });

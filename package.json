@@ -1,9 +1,10 @@
 {
-  "name": "@nodejs-docker-starter",
+  "name": "nodejs-docker-starter",
   "version": "1.0.4",
   "description": "A powerful backend starter file for Node.js, Express, Prisma, PostgreSQL, Docker, and TypeScript.",
   "main": "./src/index.js",
   "bin": "./bin/cli.js",
+  "type": "module",
   "scripts": {
     "build": "rimraf dist && swc ./src -d dist",
     "db:console": "docker compose run postgres psql -h postgres -U postgres -d backend",
