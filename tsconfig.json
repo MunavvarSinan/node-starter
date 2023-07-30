@@ -1,7 +1,7 @@
 {
     "extends": "@tsconfig/node18/tsconfig.json",
     "compilerOptions": {
-        "moduleResolution": "Node16",
+        "module": "commonjs",
         "lib": [
             "esnext"
         ],
