@@ -8,7 +8,8 @@
         "outDir": "dist",
     },
     "include": [
-        "src"
+        "src",
+        "bin"
     ],
     "exclude": [
         "node_modules",
