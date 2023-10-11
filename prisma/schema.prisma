@@ -19,3 +19,4 @@ model Post {
   @@index([publishedAt])
   @@map("posts")
 }
+

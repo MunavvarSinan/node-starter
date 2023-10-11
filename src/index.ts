@@ -4,7 +4,11 @@ import db from './modules/db';
 const app = express();
 
 app.get('/', async (req, res) => {
-    res.send('Hello world!');
+    db.post.findMany().then((posts) => {
+        return res.json(posts);
+    }).catch((err) => {
+        return res.json({ error: err });
+    })
 })
 
 const port = Number(process.env.PORT || 8080);
