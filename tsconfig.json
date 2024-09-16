@@ -1,18 +1,47 @@
 {
-    "extends": "@tsconfig/node18/tsconfig.json",
+    "extends": "@tsconfig/node20/tsconfig.json",
     "compilerOptions": {
-        "module": "commonjs",
-        "lib": [
-            "esnext"
-        ],
         "outDir": "dist",
+        "baseUrl": ".",
+        "rootDir": "src",
+        "lib": [
+            "ESNext"
+        ],
+        "paths": {
+            "@application/*": [
+                "src/application/*"
+            ],
+            "@domain/*": [
+                "src/domain/*"
+            ],
+            "@infrastructure/*": [
+                "src/infrastructure/*"
+            ],
+            "@common/*": [
+                "src/common/*"
+            ],
+            "@presentation/*": [
+                "src/presentation/*"
+            ]
+        },
+        "types": [
+            "reflect-metadata"
+        ],
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "node"
     },
     "include": [
         "src",
-        "bin"
+        "src/**/*.test.ts"
     ],
     "exclude": [
         "node_modules",
-        "**/*.test.ts"
+        "dist"
     ]
 }

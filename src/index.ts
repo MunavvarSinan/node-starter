@@ -1,16 +1,34 @@
-import express from 'express';
-import db from './modules/db';
+import 'reflect-metadata';
+import 'module-alias/register';
+import '@infrastructure/adapters/inversify'
 
-const app = express();
+import { Server } from '@infrastructure/server';
+import { logger } from '@infrastructure/adapters';
 
-app.get('/', async (req, res) => {
-    db.post.findMany().then((posts) => {
-        return res.json(posts);
-    }).catch((err) => {
-        return res.json({ error: err });
-    })
-})
+class App {
+    private _server: Server;
 
-const port = Number(process.env.PORT || 8080);
-app.listen(port, '0.0.0.0', () => console.log(`Server is running on port ${port}`));
-// we have used 0.0.0.0 because we are running the server inside a docker container so instead of running it in localhost we need to run it in 0.0.0.0
+    constructor() {
+
+        this._server = new Server();
+    }
+
+    public async start(): Promise<void> {
+        try {
+            process.on('uncaughtException', (error) => {
+                // Sentry.captureException(error)
+                logger.error('server: uncaught exception', error)
+            })
+            process.on('unhandledRejection', (reason, promise) => {
+                // Sentry.captureException(reason)
+                logger.error(`server: unhandled promise rejection: ${promise}: ${reason}`)
+            })
+            await this._server.start();
+        } catch (error) {
+            logger.error(error);
+            process.exit(1);
+        }
+    }
+}
+
+new App().start();

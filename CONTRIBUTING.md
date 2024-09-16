@@ -78,7 +78,6 @@ We value your ideas and suggestions for making this project better. If you have 
 
 We'll review your feature request and engage with you for more details.
 
-
 By adhering to these conventions, you streamline the contribution process and make it easier for others to understand and collaborate with your work.
 
 We appreciate your contributions to this project. Together, we can create a powerful and reliable starter for Node.js, Prisma, Docker, and Postgres. Thank you!

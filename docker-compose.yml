@@ -1,24 +1,39 @@
-services:
-  postgres:
-    image: postgres:15-alpine
-    ports:
-      - 5432-5432
-    environment:
-      POSTGRES_DB: backend
-      POSTGRES_HOST_AUTH_METHOD: trust
+version: '1.0'
 
+services:
   backend:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    env_file:
+      - ./.env
     ports:
-      - 5000:5000
-      - 9229:9229 # for debugging
-    volumes:
-      - .:/usr/src/app # mount the current directory to the container ( which is a working directory mentioned in the Dockerfile)
-      - /usr/src/app/node_modules
-      - /usr/src/app/.pnpm-store
-    command: pnpm start:docker
+      - "8091:8091"
     depends_on:
-      - postgres # before starting the backend, start the postgres service
+      - postgres
+    develop:
+      watch:
+        - action: rebuild
+          path: ./package.json
+        - action: rebuild
+          path: ./.env
+        - action: sync
+          path: ./src
+          target: /usr/src/app/src
+    restart: always
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
     environment:
-      DATABASE_URL: postgres://postgres@postgres/backend
-      PORT: 5000
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: backend
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
