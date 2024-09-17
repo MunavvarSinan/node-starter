@@ -1,4 +1,4 @@
-# `npx nodejs-docker-starter my-app`
+# `npx node-docker-starter my-app`
 
 # Nodejs-Docker-Postgres-starter
 
